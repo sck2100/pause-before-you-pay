@@ -14,7 +14,8 @@ function enhanceChats(){
   let speaker=role,index=0;const rows=[];
   original.forEach(el=>{
    if(el.classList.contains('incoming')){speaker=el.textContent;return}if(!el.classList.contains('bubble'))return;
-   const mine=el.classList.contains('me');const row=document.createElement('div');row.className='chat-row'+(mine?' outgoing':'');
+   if(el.textContent.startsWith('SELLER:'))speaker='Claimed Seller';if(el.textContent.startsWith('CLAIMED BANK SUPPORT:'))speaker='Claimed Bank Support';
+   const mine=el.classList.contains('me');const row=document.createElement('div');row.className='chat-row'+(mine?' outgoing':'');row.dataset.role=mine?'self':(/銀行|Bank/.test(speaker)?'bank':/賣|Seller/.test(speaker)?'seller':'support');
    if(!mine){const avatar=document.createElement('div');avatar.className='chat-face';avatar.textContent=speaker.includes('銀行')?'銀':speaker.includes('賣')?'賣':speaker.includes('客服')?'客':'友';row.append(avatar)}
    const body=document.createElement('div');body.className='chat-message';if(!mine){const name=document.createElement('div');name.className='chat-sender';name.textContent=speaker;body.append(name)}
    el.style.animationDelay='0s';body.append(el);row.append(body);
