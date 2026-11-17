@@ -3,3 +3,5 @@
 GitHub 上傳：將解壓縮內容放在專案根目錄，包含 en 資料夾、proof.js 與 totes.js。
 新增：角色分色、假的存款明細、LINE 風格對話與帳號凍結畫面。
 All examples are fictional educational simulations. No actual payments or account connections.
+
+回顧頁新增三張情境插畫，請保留 assets 資料夾與 recap-art.js。
